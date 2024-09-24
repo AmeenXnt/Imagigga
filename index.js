@@ -54,7 +54,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
     const ourDomainUrl = `${req.protocol}://${req.get('host')}/images/${Buffer.from(rawImageUrl).toString('base64')}`;
 
     res.json({
-      creator: "Guru Sensei",
+      creator: "CalciFer Ameen",
       output: ourDomainUrl,
     });
   } catch (error) {
@@ -63,7 +63,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   }
 });
 
-app.use('/CalciFer/:encodedUrl', (req, res, next) => {
+app.use('/images/:encodedUrl', (req, res, next) => {
   const rawImageUrl = Buffer.from(req.params.encodedUrl, 'base64').toString('ascii');
   createProxyMiddleware({
     target: rawImageUrl,
