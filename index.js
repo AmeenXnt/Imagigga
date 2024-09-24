@@ -63,7 +63,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   }
 });
 
-app.use('/images/:encodedUrl', (req, res, next) => {
+app.use('/CalciFer/:encodedUrl', (req, res, next) => {
   const rawImageUrl = Buffer.from(req.params.encodedUrl, 'base64').toString('ascii');
   createProxyMiddleware({
     target: rawImageUrl,
